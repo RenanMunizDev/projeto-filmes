@@ -23,4 +23,4 @@ jobs:
 
     - name: Build do Frontend (Angular)
       run: |
-        docker build -t filmes-front ./filmes-front
+        docker build -t filmes-front -f ./filmes-front/Dockerfile ./filmes-front
