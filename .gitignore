@@ -1,0 +1,15 @@
+# backend
+FilmesApi/bin/
+FilmesApi/obj/
+*.user
+*.suo
+*.log
+
+# frontend
+filmes-front/node_modules/
+filmes-front/dist/
+
+# geral
+.vscode/
+.env
+.DS_Store

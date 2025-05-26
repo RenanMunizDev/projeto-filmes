@@ -1,0 +1,26 @@
+name: CI/CD Projeto Filmes
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v3
+
+    - name: Configura Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build da API (.NET)
+      run: |
+        docker build -t filmes-api ./FilmesApi
+
+    - name: Build do Frontend (Angular)
+      run: |
+        docker build -t filmes-front ./filmes-front
