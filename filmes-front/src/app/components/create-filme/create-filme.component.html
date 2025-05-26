@@ -1,0 +1,12 @@
+<form [formGroup]="filmeForm" (ngSubmit)="onSubmit()">
+  <label>Título:</label>
+  <input formControlName="titulo" placeholder="Ex: Matrix" /><br />
+
+  <label>Gênero:</label>
+  <input formControlName="genero" placeholder="Ex: Ficção" /><br />
+
+  <label>Duração (min):</label>
+  <input formControlName="duracao" type="number" /><br />
+
+  <button type="submit">Cadastrar</button>
+</form>
