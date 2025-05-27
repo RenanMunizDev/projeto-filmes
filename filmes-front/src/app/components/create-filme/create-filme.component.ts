@@ -21,7 +21,7 @@ export class CreateFilmeComponent {
 
   onSubmit() {
   const filme = this.filmeForm.value;
-  this.http.post('http://filmes-api/Filme', filme)
+  this.http.post('/Filme', filme)
     .subscribe({
       next: (res) => alert('Filme cadastrado com sucesso!'),
       error: (err) => alert('Erro ao cadastrar filme.')
