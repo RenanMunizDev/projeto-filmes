@@ -34,16 +34,31 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod());
 });
 
+builder.WebHost.UseUrls("http://+:80");
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirFrontend", builder =>
+    {
+        builder.WithOrigins("http://localhost:4200")
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
+
+
 var app = builder.Build();
 
-app.UseCors("AllowAngular");
+app.UseCors("PermitirFrontend");
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Filmes API V1");
+    c.RoutePrefix = "swagger"; // Garante que a URL /swagger/index.html seja usada
+});
+
 
 app.UseHttpsRedirection();
 

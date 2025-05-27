@@ -32,10 +32,17 @@ public class FilmeController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     public IActionResult AdicionaFilme([FromBody] CreateFilmeDto filmeDto)
     {
-        Filme filme = _mapper.Map<Filme>(filmeDto);
-        _context.Filmes.Add(filme);
-        _context.SaveChanges();
-        return CreatedAtAction(nameof(RecuperaFilmePorId), new { id = filme.Id },filme);
+        try
+        {
+            Filme filme = _mapper.Map<Filme>(filmeDto);
+            _context.Filmes.Add(filme);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(RecuperaFilmePorId), new { id = filme.Id }, filme);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao salvar filme: {ex.Message}");
+        }
     }
 
     [HttpGet]
