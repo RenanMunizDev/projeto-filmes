@@ -1,71 +1,87 @@
-# Projeto Filmes 🎬
+# 🎬 Projeto Filmes
 
-Este projeto é composto por uma **API RESTful em .NET 8**, um **frontend em Angular** e um **banco de dados MySQL**, todos dockerizados. Ele permite cadastrar, consultar, atualizar e remover filmes com interface web e documentação Swagger.
-
----
-
-## 🔧 Tecnologias
-
-* .NET 8 (API)
-* Angular 16+ (Frontend)
-* MySQL 8 (Banco de dados)
-* Docker e Docker Compose
-* CI/CD com GitHub Actions
-* Swagger para documentação da API
+Aplicação fullstack para cadastro e listagem de filmes, com **Angular + .NET 8 + MySQL**, totalmente dockerizada e com CI/CD no GitHub Actions.
 
 ---
 
-## 🐳 Como rodar com Docker
+## 🚀 Tecnologias
 
-> Requisitos: [Docker](https://www.docker.com/products/docker-desktop/) instalado.
+- 🔧 Backend: .NET 8 (ASP.NET Core)
+- 🎨 Frontend: Angular 17 (SPA)
+- 🐬 Banco de Dados: MySQL 8
+- 🐳 Docker & Docker Compose
+- 🧪 Swagger (documentação da API)
+- ⚙️ CI/CD: GitHub Actions + Docker Hub
 
-### 1. Clonar o repositório
+---
+
+## 🐙 Status do build
+
+![CI/CD](https://github.com/RenanMunizDev/projeto-filmes/actions/workflows/ci-cd.yml/badge.svg)
+
+---
+
+## 🧪 Executar local com Docker
+
+### Pré-requisitos
+
+- [Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/) instalados
+
+### Rodar o projeto:
 
 ```bash
 git clone https://github.com/RenanMunizDev/projeto-filmes.git
 cd projeto-filmes
+docker-compose up --build
 ```
 
-### 2. Rodar com Docker Compose
+### Acessar os serviços:
 
-```bash
-docker-compose up --pull always --build
-```
-
-### 3. Acessar os serviços
-
-* **Frontend**: [http://localhost:4200](http://localhost:4200)
-* **Swagger da API**: [http://localhost:5000/swagger](http://localhost:5000/swagger)
-
-A API será acessada pelo front via Docker interno, e o banco de dados será automaticamente criado e populado ao iniciar o container.
+| Serviço     | URL                      |
+|-------------|--------------------------|
+| Frontend    | http://localhost:4200    |
+| API (.NET)  | http://localhost:5000    |
+| Swagger     | http://localhost:5000/swagger |
+| MySQL       | localhost:3308 (usuário: root / senha: root) |
 
 ---
 
-## 📦 Imagens no Docker Hub
+## 📦 Docker Hub
 
-* API: [`renanmunizdev/filmes-api`](https://hub.docker.com/r/renanmunizdev/filmes-api)
-* Frontend: [`renanmunizdev/filmes-front`](https://hub.docker.com/r/renanmunizdev/filmes-front)
+Imagens atualizadas automaticamente via CI/CD:
+
+- 📁 API: [`renanmunizdev/filmes-api`](https://hub.docker.com/r/renanmunizdev/filmes-api)
+- 🎨 Frontend: [`renanmunizdev/filmes-front`](https://hub.docker.com/r/renanmunizdev/filmes-front)
 
 ---
 
-## 🔎 Testes rápidos via Swagger
-
-Acesse: `http://localhost:5000/swagger`
-
-### Exemplo de corpo para POST `/Filme`
+## 📬 Exemplo de POST (cadastro de filme)
 
 ```json
 {
-  "titulo": "Oppenheimer",
-  "genero": "Drama",
-  "duracao": 180
+  "titulo": "Matrix",
+  "genero": "Ficção Científica",
+  "duracao": 136
 }
 ```
 
 ---
 
-## ✨ Autor
+## 📁 Estrutura do Projeto
 
-[Renan Muniz](https://github.com/RenanMunizDev)
+```
+projeto-filmes/
+│
+├── FilmesApi/            # Projeto .NET (API RESTful)
+├── filmes-front/         # Projeto Angular
+├── docker-compose.yml    # Orquestra os 3 containers (API + Front + MySQL)
+└── .github/workflows/    # CI/CD GitHub Actions
+```
 
-Desenvolvedor .NET apaixonado por boas práticas, performance e entregas de impacto.
+---
+
+## 📌 Autor
+
+Desenvolvido por **Renan Muniz**  
+🔗 [LinkedIn](https://www.linkedin.com/in/renanmunizdev)  
+🐙 [GitHub](https://github.com/RenanMunizDev)
