@@ -4,6 +4,7 @@ FilmesApi/obj/
 *.user
 *.suo
 *.log
+.vs/
 
 # frontend
 filmes-front/node_modules/
