@@ -9,5 +9,5 @@ RUN npm run build -- --configuration production
 # Etapa 2: Imagem final com NGINX
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /app/dist/filmes-front /usr/share/nginx/html
+COPY --from=build /app/dist/filmes-front/browser /usr/share/nginx/html
 EXPOSE 80
