@@ -1,13 +1,12 @@
-# Etapa 1: Build do Angular
-FROM node:18 AS builder
+# Etapa 1: build Angular
+FROM node:18 AS build
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
 COPY . .
-RUN npm run build -- --configuration production
+RUN npm install
+RUN npm run build
 
-# Etapa 2: Imagem final com NGINX
+# Etapa 2: servir com nginx
 FROM nginx:alpine
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist/filmes-front/browser /usr/share/nginx/html
 EXPOSE 80
