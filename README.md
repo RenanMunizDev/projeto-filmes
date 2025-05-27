@@ -83,5 +83,5 @@ projeto-filmes/
 ## 📌 Autor
 
 Desenvolvido por **Renan Muniz**  
-🔗 [LinkedIn](https://www.linkedin.com/in/renanmunizdev)  
+🔗 [LinkedIn](https://www.linkedin.com/in/renanmuniz86/)  
 🐙 [GitHub](https://github.com/RenanMunizDev)
